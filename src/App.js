@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { useState, useEffect } from "react";
+import Search from "./Search/Search";
+import Weather from "./Weather/Weather";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
 
-function App() {
+
+export default function App() {
+  const [displayData, setDisplayData] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+
+  useEffect(() => {
+    if (displayData.length) {
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${displayData}&appid=ef7a2bb41d1b15fcd08f581e9f05537a&units=metric`;
+      axios.get(url).then((data) => setWeatherData(data.data));
+    }
+  }, [displayData]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <div className="App">
+        <Search onSearchUpdate={setDisplayData} />
+        <Weather weatherData={weatherData} />
+      </div>
+      <p>
+        <a href="https://github.com/Chilolay" target="blank">Open-source Code</a> by Chloe Boyd
+      </p>
+    </Container>
   );
 }
 
-export default App;
