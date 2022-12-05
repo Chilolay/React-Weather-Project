@@ -10,7 +10,7 @@ export default function WeatherData({ weatherData }) {
       <Row>
         <Col md={6}>
           <div>
-            <h1>Seattle</h1>
+            <h1>{weatherData.name}</h1>
             <p>{Math.round(weatherData.main.temp)}°C</p>
             <div>Description: {weatherData.weather[0].description}</div>
           </div>

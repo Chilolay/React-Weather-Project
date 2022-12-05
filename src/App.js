@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 
 
 export default function App() {
-  const [displayData, setDisplayData] = useState("");
+  const [displayData, setDisplayData] = useState("Seattle");
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
