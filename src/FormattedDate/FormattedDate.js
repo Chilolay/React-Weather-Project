@@ -1,5 +1,4 @@
 import React from "react";
-import WeatherData from "../Weather/Weather";
 
 export default function FormattedDate({ dateTime }) {
   let newDate = new Date(dateTime * 1000);
