@@ -1,11 +1,15 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
 }
 
-.container {
+.App .container {
   padding: 20px;
-  margin: 20px;
+  margin: 35px auto;
+  max-width: 600px;
   border: lightgray 1px solid;
   border-radius: 5px;
+}
+
+.App p {
+  text-align: center;
 }

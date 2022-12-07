@@ -1,1 +1,13 @@
+.Weather ul, li {
+    list-style: none;
+    padding-left: 0;
+}
 
+.Weather img {
+    margin-right: 5px;
+}
+
+.Weather .humidityWind {
+    position: relative;
+    top: 30px;
+}

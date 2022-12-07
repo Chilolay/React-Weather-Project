@@ -9,9 +9,6 @@ export default function Search({ onSearchUpdate }) {
   function handleOnChange(event) {
     event.preventDefault();
     setCity(event.target.value);
-    if (city.length) {
-      onSearchUpdate(city);
-    }
   }
 
   const onFormSubmit = (e) => {
@@ -23,7 +20,7 @@ export default function Search({ onSearchUpdate }) {
     <Form onSubmit={onFormSubmit}>
       <Form.Group className="mb-3">
         <Row className="justify-content-center">
-          <Col md={5}>
+          <Col md={8}>
             <Form.Control
               type="text"
               placeholder="Search City..."

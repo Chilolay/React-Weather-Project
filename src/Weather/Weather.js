@@ -1,32 +1,41 @@
 import "./styles.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
+import FormattedDate from "../FormattedDate/FormattedDate";
+import TempUnits from "../TempUnits/TempUnits";
 
 export default function WeatherData({ weatherData }) {
   return weatherData ? (
-    <Container>
+    <div className="Weather">
+      <h1>{weatherData.name}</h1>
+      <ul>
+        <li>
+          <FormattedDate dateTime={weatherData.dt} />
+        </li>
+        <li className="text-capitalize">
+          Description: {weatherData.weather[0].description}
+        </li>
+      </ul>
       <Row>
         <Col md={6}>
-          <div>
-            <h1>{weatherData.name}</h1>
-            <p>{Math.round(weatherData.main.temp)}°C</p>
-            <div>Description: {weatherData.weather[0].description}</div>
-          </div>
-          <div>
+          <span>
             <img
               src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               alt="weatherIcon"
             />
-          </div>
+            <TempUnits celsius={Math.round(weatherData.main.temp)} />
+          </span>
         </Col>
+
         <Col md={6}>
-          <div>Humidity: {Math.round(weatherData.main.humidity)}%</div>
-          <div>Wind: {Math.round(weatherData.wind.speed)}km/h</div>
+          <ul className="humidityWind">
+            <li>Humidity: {Math.round(weatherData.main.humidity)}%</li>
+            <li>Wind: {Math.round(weatherData.wind.speed)} km/h</li>
+          </ul>
         </Col>
       </Row>
-    </Container>
+    </div>
   ) : (
     false
   );
