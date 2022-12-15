@@ -1,0 +1,12 @@
+.WeeklyForecast {
+    text-align: center;
+}
+
+.forecastMin{
+    opacity: 0.6;
+    margin-left: 5px;
+}
+
+.forecast-wrapper{
+    display:inline-flex;
+}

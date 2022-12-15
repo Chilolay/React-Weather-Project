@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Row } from "react-bootstrap";
 import FormattedDate from "../FormattedDate/FormattedDate";
 import TempUnits from "../TempUnits/TempUnits";
+import WeeklyForecast from "../WeeklyForecast/WeeklyForecast";
 
 export default function WeatherData({ weatherData }) {
   return weatherData ? (
@@ -35,6 +36,7 @@ export default function WeatherData({ weatherData }) {
           </ul>
         </Col>
       </Row>
+      <WeeklyForecast weatherData={weatherData} />
     </div>
   ) : (
     false
